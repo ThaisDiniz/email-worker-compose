@@ -1,0 +1,29 @@
+#Comandos Docker
+
+* problemas com conectividade de IP, atualizar 
+1. Stop all the running containers `docker stop $(docker ps -a -q)` then
+2. Stop the Docker on your machine & `restart` it.
+
+* postgres
+https://hub.docker.com/_/postgres
+
+* para subir aplicação em mode daemon
+docker-compose up -d
+
+* para verificar quais são os processos que estão executando
+docker-compose ps
+
+* para listar os bancos de dados criados para o usuários postgres
+docker-compose exec db psql -U postgres -c '\l'
+
+* para verificar se realmente foi criado tudo com sucesso
+docker-compose exec db psql -U postgres -f /scripts/check.sql
+
+* para parar o server do db
+docker-compose down
+
+* para acessar o log do compose
+docker-compose logs -f -t
+
+* para casos de permission denied para arquivos do tipo sh
+uma opção é colocar bash na frente para poder executar# email-worker-compose
